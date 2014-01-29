@@ -2,18 +2,9 @@
 
 //cargamos categorias y el modal del insert product
 $(document).ready(function() {
-    $.ajax({
-        dataType: 'json',
-        url: 'usuarios.php',
-        success: function(data) {
-            datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
-            $.each(data, function(index) {
-                datos += '<tr><td>' + data[index].id_usuario + '</td><td>' + data[index].nombre + '</td><td>' + data[index].apellidos + '</td><td><img src=../assets/img/' + data[index].id_usuario + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_usuario + ')" id="form_insert"><i class="icon-edit"></i></a></td><td><a href="javascript:usuario_borrar(' + data[index].id_usuario + ')"><i class="icon-remove"></i></a></td></tr>';
-            });
-            datos += '</tbody></table></div>';
-            $('#dataTable').html(datos);
-        }
-    });
+    $("#dialog").css('visibility', 'hidden');
+    $("#dialog_modify").css('visibility', 'hidden');
+    usuarios();
     jQuery("#form_insert").click(function() {
         $("#dialog").css('visibility', 'visible');
         $("#dialog").dialog({
@@ -30,7 +21,7 @@ $(document).ready(function() {
                         type: 'POST',
                         data: datos,
                         success: function(data) {
-                            alert("success");
+                            
                             usuarios();
                         }
                     });
@@ -44,8 +35,7 @@ $(document).ready(function() {
             }
         });
     });
-    $("#dialog").css('visibility', 'hidden');
-    $("#dialog_modify").css('visibility', 'hidden');
+
 });
 
 //load products
@@ -53,7 +43,6 @@ function usuarios() {
     //alert("Pulsado " + categoria);
     $.ajax({
         dataType: 'json',
-        type: 'GET',
         url: 'usuarios.php',
         success: function(data) {
             datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
@@ -68,7 +57,7 @@ function usuarios() {
 //update product: needed to do a function for modal hidden
 function button_modify(id_usuario) {
     $("#dialog_modify").css('visibility', 'visible');
-    alert("id" + id_usuario)
+    
     $.ajax({
         dataType: 'json',
         type: 'GET',
@@ -103,7 +92,7 @@ function button_modify(id_usuario) {
                     type: 'POST',
                     data: datos,
                     success: function(data) {
-                        alert("succes: id -> "); // + data);
+                       
                         usuarios();
                     }
                 });

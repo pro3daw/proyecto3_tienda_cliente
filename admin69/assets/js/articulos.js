@@ -2,20 +2,16 @@
 
 //cargamos categorias y el modal del insert product
 $(document).ready(function() {
-    todos_articulos()
-    //carga las categorias en articulos-nav
-    $.ajax({
-        dataType: 'json',
-        url: 'categorias.php',
-        success: function(data) {
-            datos = '';
-            $.each(data, function(index) {
-                datos += '<li><a href="javascript:articulos(\'' + data[index].id_categoria + '\', \'' + data[index].nombre + '\')">' + data[index].nombre + '</a></li>';
-            });
-            datos += '</ul>';
-            $('#articulos-nav').html(datos);
-        }
-    });
+    //esconde modales
+    $("#dialog").css('visibility', 'hidden');
+    $("#dialog_modify").css('visibility', 'hidden');
+    //carga las categorias, articulos, insert
+    todos_articulos();
+    categorias();
+    insert();
+    
+});
+function insert(){
     jQuery("#form_insert").click(function() {
         $("#dialog").css('visibility', 'visible');
         $("#dialog").dialog({
@@ -45,30 +41,40 @@ $(document).ready(function() {
             }
         });
     });
-    $("#dialog").css('visibility', 'hidden');
-    $("#dialog_modify").css('visibility', 'hidden');
-});
+}
+function categorias(){
+    $.ajax({
+        dataType: 'json',
+        url: 'categorias.php',
+        success: function(data) {
+            datos = '';
+            $.each(data, function(index) {
+                datos += '<li><a href="javascript:articulos(\'' + data[index].id_categoria + '\', \'' + data[index].nombre + '\')">' + data[index].nombre + '</a></li>';
+            });
+            datos += '</ul>';
+            $('#articulos-nav').html(datos);
+        }
+    });
+}
 function todos_articulos(){
-    alert("articuloooos");
     //carga todos los productos en datatable
     $.ajax({
         dataType: 'json',
         url: 'articulos.php',
         success: function(data) {
-            alert("vuelta articulos");
+           
             datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
             $.each(data, function(index) {
-                datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=./assets/img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
+                datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=./assets/img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert2"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
             });
             datos += '</tbody></table></div>';
             $('#dataTable').html(datos);
         }    
-    });
-    alert("pasa algo?");
+    }); 
 }
 //load products
 function articulos(id_categoria, nombre) {
-    //alert("Pulsado " + categoria);
+    
     $.ajax({
         dataType: 'json',
         type: 'GET',

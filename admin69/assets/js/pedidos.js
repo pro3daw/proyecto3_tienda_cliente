@@ -12,14 +12,14 @@ $(document).ready(function() {
             hide: "show",
             buttons: {
                 'Save': function() {
-                    alert("antes de modificar");
+                    
                     var datos = $("#new_product_data").serialize();
                     $.ajax({
                         url: 'pedido_nuevo.php',
                         type: 'POST',
                         data: datos,
                         success: function(data) {
-                            alert(data);
+                            
                             pedidos();
                         }
                     });
@@ -71,7 +71,7 @@ function button_modify(id_pedido) {
             });
         }
     });
-    alert("antes de modificar");
+    
     $("#dialog_modify").dialog({
         modal: true,
         title: "Modificar Producto",
@@ -85,7 +85,6 @@ function button_modify(id_pedido) {
                     type: 'POST',
                     data: datos,
                     success: function(data) {
-                        alert("despues de modificar");
                         pedidos();
                     }
                 });

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 27-01-2014 a las 07:44:11
+-- Tiempo de generación: 29-01-2014 a las 16:54:43
 -- Versión del servidor: 5.5.32
 -- Versión de PHP: 5.4.6-1ubuntu1.4
 
@@ -104,7 +104,7 @@ CREATE TABLE IF NOT EXISTS `productos` (
   `tipo_producto` varchar(30) DEFAULT NULL,
   PRIMARY KEY (`id_producto`),
   KEY `FK__categorias` (`id_categoria`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=56 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=124 ;
 
 --
 -- Volcado de datos para la tabla `productos`
@@ -112,16 +112,16 @@ CREATE TABLE IF NOT EXISTS `productos` (
 
 INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `precio`, `id_categoria`, `tipo_producto`) VALUES
 (1, 'pelota', 'pelota para jugar ', 10, 1, 'articulo'),
-(2, 'pelota', 'pelota basquet', 12, 2, 'articulo'),
+(2, 'Pelota Baloncesto', 'pelota Baloncesto', 12, 2, 'articulo'),
 (3, 'Adiddas Yellow 2000', 'Zapatillas  adiddas de color  amarillo , con una e', 99, 3, 'zapatillas'),
 (4, 'Adiddas Black and Yellow 2000', 'Zapatillas  adiddas de color negro y amarillo , co', 99, 3, 'zapatillas'),
 (5, 'Nike Red & Black', 'Nike producto estrella con una suela dividida en 3', 150, 3, 'zapatillas'),
-(6, 'Nike Blue with shadow', NULL, 120, 3, 'zapatillas'),
+(6, 'Nike Blue with shadow', 'Nike blue', 120, 3, 'zapatillas'),
 (7, 'Rebook Special Yellow', 'Nice to meet u ', 115, 3, 'zapatillas'),
 (8, 'Rebook Special Blue 2014', 'Nice to meet u ', 135, 3, 'zapatillas'),
 (9, 'Asics R23', 'Nice to meet u ', 100, 3, 'zapatillas'),
 (10, 'consultoria', 'asesoria consultoria', 1500, 10, 'servicio'),
-(11, 'Asics V2', 'Nice to meet u ', 75, 3, 'zapatillas'),
+(11, 'Asics V2', 'Nice to meet u ', 76, 3, 'zapatillas'),
 (12, 'Camiseta Nike Corta', 'Nice to meet u ', 20, 4, 'camisetas'),
 (13, 'Camiseta Nike Corta 2', 'Nice to meet u ', 20, 4, 'camisetas'),
 (14, 'Camiseta Nike Larga', 'Nice to meet u ', 25, 4, 'camisetas'),
@@ -129,8 +129,16 @@ INSERT INTO `productos` (`id_producto`, `nombre`, `descripcion`, `precio`, `id_c
 (16, 'Camiseta Adiddas Corta', 'Nice to meet u ', 20, 4, 'camisetas'),
 (17, 'Camiseta Adiddas Corta 2', 'Nice to meet u ', 20, 4, 'camisetas'),
 (18, 'Camiseta Adiddas Larga', 'Nice to meet u ', 25, 4, 'camisetas'),
-(19, 'Camiseta Adiddas Larga 2', 'Nice to meet u ', 25, 4, 'camisetas'),
-(55, 'Kike', 'prueba kike', 12, 4, 'zapatilla');
+(31, 'Camiseta Hombre', 'Camiseta sudadera hombre', 15, 2, 'camiseta'),
+(32, 'Camiseta Mujer', 'Camiseta sudadera mujer', 15, 2, 'camiseta'),
+(33, 'Pantalon Mujer', 'Pantalon mujer', 12, 2, 'pantalon'),
+(34, 'Pantalon Hombre', 'Pantalon Hombre', 12, 2, 'pantalon'),
+(35, 'Calcetines Hombre', 'Calcetines Hombre', 7, 2, 'calcetines '),
+(36, 'Calcetines Mujer', 'Calcetines Mujer', 7, 2, 'calcetines '),
+(37, 'Calcetines unisex blancos', 'Calcetines unisex blancos', 5, 2, 'calcetines '),
+(38, 'Kit Accesorios NBA', 'Kit Accesorios NBA', 25, 2, 'cintas'),
+(39, 'Cinta Pelo NBA', 'Cinta Pelo NBA', 17, 2, 'cintas'),
+(40, 'Conjunto junior', 'Conjunto junior pantalon, sudadera, camiseta', 37, 2, 'conjunto');
 
 -- --------------------------------------------------------
 
@@ -143,7 +151,7 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `apellidos` varchar(30) DEFAULT NULL,
   `password` varchar(20) DEFAULT NULL,
   `mail` varchar(25) DEFAULT NULL,
-  `codpos` varchar(6) DEFAULT NULL,
+  `codigo_postal` varchar(6) DEFAULT NULL,
   `direccion` varchar(40) DEFAULT NULL,
   `ciudad` varchar(15) DEFAULT NULL,
   `provincia` varchar(15) DEFAULT NULL,
@@ -155,9 +163,10 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id_usuario`, `apellidos`, `password`, `mail`, `codpos`, `direccion`, `ciudad`, `provincia`, `nombre`) VALUES
+INSERT INTO `usuarios` (`id_usuario`, `apellidos`, `password`, `mail`, `codigo_postal`, `direccion`, `ciudad`, `provincia`, `nombre`) VALUES
 (0, 'root', '65549415', 'mislata@gmail.com', '13456', 'mislata mislata', 'mislata', 'valencia', 'root'),
-(1, 'garcia garcia', '12341234', 'yo@ya.com', '73813', 'c/falsa 123', 'valencia', 'valencia', 'ramon');
+(1, 'garcia garcia', '12341234', 'yo@ya.com', '73813', 'c/falsa 123', 'valencia', 'valencia', 'ramon'),
+(2, 'el de la moto', '23423', 'asdf@asf.com', '23452', 'calle falsa 123', 'valencia', 'teruel', 'Maroto');
 
 --
 -- Restricciones para tablas volcadas

@@ -9,9 +9,9 @@ $(document).ready(function() {
     todos_articulos();
     categorias();
     insert();
-    
+
 });
-function insert(){
+function insert() {
     jQuery("#form_insert").click(function() {
         $("#dialog").css('visibility', 'visible');
         $("#dialog").dialog({
@@ -20,6 +20,7 @@ function insert(){
             show: "blind",
             hide: "show",
             buttons: {
+                
                 'Save': function() {
                     var datos = $("#new_product_data").serialize();
                     $.ajax({
@@ -42,7 +43,7 @@ function insert(){
         });
     });
 }
-function categorias(){
+function categorias() {
     $.ajax({
         dataType: 'json',
         url: 'categorias.php',
@@ -56,25 +57,24 @@ function categorias(){
         }
     });
 }
-function todos_articulos(){
+function todos_articulos() {
     //carga todos los productos en datatable
     $.ajax({
         dataType: 'json',
         url: 'articulos.php',
         success: function(data) {
-           
             datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
             $.each(data, function(index) {
                 datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=./assets/img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert2"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
             });
             datos += '</tbody></table></div>';
             $('#dataTable').html(datos);
-        }    
-    }); 
+        }
+    });
 }
 //load products
 function articulos(id_categoria, nombre) {
-    
+
     $.ajax({
         dataType: 'json',
         type: 'GET',
@@ -139,12 +139,14 @@ function button_modify(id_producto) {
 
 //delete product
 function articulo_borrar(id_producto, id_categoria) {
+   
     $.ajax({
         dataType: 'json',
         type: 'GET',
         url: 'articulo_borrar.php?id_producto=' + id_producto + '&id_categoria=' + id_categoria,
         data: datos,
         success: function(data) {
+           
             articulos(data);
         }
     });

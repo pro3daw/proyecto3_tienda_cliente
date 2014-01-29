@@ -1,6 +1,6 @@
 <?php
 
-$id_pedido = $_POST["id_producto"];
+$id_producto = $_POST["id_producto"];
 $nombre = $_POST["nombre"];
 $descripcion = $_POST["descripcion"];
 $precio = $_POST["precio"];
@@ -11,7 +11,7 @@ $tipo_producto = $_POST["tipo_producto"];
 mysql_connect("localhost", "root", "frodo2013") or die("Connection Error: " . mysql_error());
 mysql_select_db("proyecto3_tienda") or die("Error conecting to db.");
 
-$SQL = "INSERT INTO productos (id_producto, nombre, descripcion, precio, id_categoria, tipo_producto) VALUES ($id_pedido, '$nombre', '$descripcion', $precio, $id_categoria, '$tipo_producto');"; //numericos sin comillas
+$SQL = "INSERT INTO productos (id_producto, nombre, descripcion, precio, id_categoria, tipo_producto) VALUES ($id_producto, '$nombre', '$descripcion', $precio, $id_categoria, '$tipo_producto');"; //numericos sin comillas
 
 mysql_query($SQL) or die("Couldn t execute query." . mysql_error());
 

@@ -10,7 +10,7 @@ $result = mysql_query($SQL) or die("Couldn t execute query." . mysql_error());
 //$datos[];
 $i = 0;
 while ($fila = mysql_fetch_array($result, MYSQL_ASSOC)) {
-    $datos[$i] = array('id_usuario' => $fila["id_usuario"], 'nombre' => $fila["nombre"], 'apellidos' => $fila["apellidos"], 'password' => $fila["password"], 'mail' => $fila["mail"], 'codpos' => $fila["codpos"], 'direccion' => $fila["direccion"], 'ciudad' => $fila["ciudad"], 'provincia' => $fila["provincia"]);
+    $datos[$i] = array('id_usuario' => $fila["id_usuario"], 'nombre' => $fila["nombre"], 'apellidos' => $fila["apellidos"], 'password' => $fila["password"], 'mail' => $fila["mail"], 'codigo_postal' => $fila["codigo_postal"], 'direccion' => $fila["direccion"], 'ciudad' => $fila["ciudad"], 'provincia' => $fila["provincia"]);
 	
 	// son los datos que cojo de la bbdd 
     $i++;

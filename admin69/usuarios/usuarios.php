@@ -9,7 +9,12 @@
 	$i=0;
     while($fila = mysql_fetch_array($result,MYSQL_ASSOC)) 
 	{
-		$datos[$i]=array('id_usuario'=>$fila["id_usuario"],'nombre'=>$fila["nombre"]);
+		$datos[$i]=array(
+                    'id_usuario'=>$fila["id_usuario"],
+                    'nombre'=>$fila["nombre"],
+                    'apellidos'=>$fila["apellidos"],
+                    'mail'=>$fila["mail"]
+                    );
 		$i++;
 	}
 		

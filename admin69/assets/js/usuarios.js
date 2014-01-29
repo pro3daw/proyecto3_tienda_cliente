@@ -2,7 +2,7 @@
 
 //cargamos categorias y el modal del insert product
 $(document).ready(function() {
-    $.ajax({       
+    $.ajax({
         dataType: 'json',
         url: 'usuarios.php',
         success: function(data) {
@@ -68,13 +68,13 @@ function usuarios() {
 //update product: needed to do a function for modal hidden
 function button_modify(id_usuario) {
     $("#dialog_modify").css('visibility', 'visible');
-alert("id" + id_usuario)
+    alert("id" + id_usuario)
     $.ajax({
         dataType: 'json',
         type: 'GET',
         url: 'usuario_modificar.php?id_usuario=' + id_usuario,
         success: function(data) {
-            alert("succes")
+
             $.each(data, function(index) {
                 $("#id_usuario").val(data[index].id_usuario);
                 $("#nombre").val(data[index].nombre);
@@ -85,7 +85,7 @@ alert("id" + id_usuario)
                 $("#direccion").val(data[index].direccion);
                 $("#ciudad").val(data[index].ciudad);
                 $("#provincia").val(data[index].provincia);
-                datos = data[index].id_usuario + data[index].nombre + data[index].apellidos + data[index].password + data[index].mail + data[index].codpost + data[index].direccion + data[index].ciudad + data[index].provincia;   
+                datos = data[index].id_usuario + data[index].nombre + data[index].apellidos + data[index].password + data[index].mail + data[index].codpost + data[index].direccion + data[index].ciudad + data[index].provincia;
             });
         }
     });
@@ -98,12 +98,13 @@ alert("id" + id_usuario)
             'Save': function() {
                 var datos = $("#modify_product_data").serialize();
                 $.ajax({
-                    dataType: 'json',
-                    url: 'articulo_guardar.php',
+                    //dataType: 'json',
+                    url: 'usuario_guardar.php',
                     type: 'POST',
                     data: datos,
                     success: function(data) {
-                        articulos(data);
+                        alert("succes: id -> "); // + data);
+                        usuarios();
                     }
                 });
                 $(this).dialog('close');

@@ -1,5 +1,5 @@
 <?php
-$id_producto = $_POST["id_producto"];
+$id_pedido = $_POST["id_producto"];
 $nombre = $_POST["nombre"];
 $descripcion = $_POST["descripcion"];
 $precio = $_POST["precio"];
@@ -9,7 +9,7 @@ $tipo_producto = $_POST["tipo_producto"];
 mysql_connect("localhost", "root", "frodo2013") or die("Connection Error: " . mysql_error());
 mysql_select_db("proyecto3_tienda") or die("Error conecting to db.");
 
-$SQL = "UPDATE productos SET nombre='$nombre', descripcion='$descripcion', precio='$precio', id_categoria='$id_categoria', tipo_producto='$tipo_producto' WHERE id_producto='$id_producto';";
+$SQL = "UPDATE productos SET nombre='$nombre', descripcion='$descripcion', precio='$precio', id_categoria='$id_categoria', tipo_producto='$tipo_producto' WHERE id_producto='$id_pedido';";
 
 mysql_query($SQL) or die("Couldn t execute query." . mysql_error());
 

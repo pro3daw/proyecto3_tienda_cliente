@@ -2,6 +2,8 @@
 
 //cargamos categorias y el modal del insert product
 $(document).ready(function() {
+    todos_articulos()
+    //carga las categorias en articulos-nav
     $.ajax({
         dataType: 'json',
         url: 'categorias.php',
@@ -14,7 +16,6 @@ $(document).ready(function() {
             $('#articulos-nav').html(datos);
         }
     });
-    
     jQuery("#form_insert").click(function() {
         $("#dialog").css('visibility', 'visible');
         $("#dialog").dialog({
@@ -47,7 +48,24 @@ $(document).ready(function() {
     $("#dialog").css('visibility', 'hidden');
     $("#dialog_modify").css('visibility', 'hidden');
 });
-
+function todos_articulos(){
+    alert("articuloooos");
+    //carga todos los productos en datatable
+    $.ajax({
+        dataType: 'json',
+        url: 'articulos.php',
+        success: function(data) {
+            alert("vuelta articulos");
+            datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
+            $.each(data, function(index) {
+                datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=./assets/img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
+            });
+            datos += '</tbody></table></div>';
+            $('#dataTable').html(datos);
+        }    
+    });
+    alert("pasa algo?");
+}
 //load products
 function articulos(id_categoria, nombre) {
     //alert("Pulsado " + categoria);

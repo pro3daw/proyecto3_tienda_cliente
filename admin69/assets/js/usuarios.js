@@ -2,8 +2,8 @@
 //cargamos categorias y el modal del insert product
 $(document).ready(function() {
     //esconde modales
-    //$("#dialog").css('visibility', 'hidden');
-    //$("#dialog_modify").css('visibility', 'hidden');
+    $("#dialog").css('visibility', 'hidden');
+    $("#dialog_modify").css('visibility', 'hidden');
     usuarios();
     insert();
 });
@@ -46,9 +46,9 @@ function usuarios() {
         dataType: 'json',
         url: 'usuarios.php',
         success: function(data) {
-            datos = '<thead><tr><th>ID_usuario</th><th>Nombre</th><th>Apellidos</th><th>e-mail</th><th></th><th></th></tr></thead><tbody>';
+            datos = '<thead><tr><th>ID_User</th><th>Name</th><th>Surname</th><th>e-mail</th><th></th><th></th></tr></thead><tbody>';
             $.each(data, function(index) {
-                datos += '<tr><td>' + data[index].id_usuario + '</td><td>' + data[index].nombre + '</td><td>' + data[index].apellidos + '</td><td>' + data[index].mail + '</td><td><a href="javascript:button_modify(' + data[index].id_usuario + ')" id="form_insert"><i class="icon-edit"></i></a></td><td><a href="javascript:usuario_borrar(' + data[index].id_usuario + ')"><i class="icon-remove"></i></a></td></tr>';
+                datos += '<tr><td>' + data[index].id_usuario + '</td><td>' + data[index].nombre + '</td><td>' + data[index].apellidos + '</td><td>' + data[index].mail + '</td><td><a href="javascript:button_modify(' + data[index].id_usuario + ')" ><i class="icon-edit"></i></a></td><td><a href="javascript:usuario_borrar(' + data[index].id_usuario + ')"><i class="icon-remove"></i></a></td></tr>';
             });
             datos += '</tbody></table></div>';
             $('#dataTable').html(datos);

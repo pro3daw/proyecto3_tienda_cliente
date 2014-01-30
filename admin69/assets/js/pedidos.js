@@ -3,8 +3,8 @@
 //cargamos categorias y el modal del insert product
 $(document).ready(function() {
     //esconde modales
-    //$("#dialog").css('visibility', 'hidden');
-    //$("#dialog_modify").css('visibility', 'hidden');
+    $("#dialog").css('visibility', 'hidden');
+    $("#dialog_modify").css('visibility', 'hidden');
     pedidos();
     insert();
 });
@@ -16,9 +16,9 @@ function pedidos() {
         type: 'GET',
         url: 'pedidos.php' ,
         success: function(data) {
-            datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
+            datos = '<thead><tr><th>ID_Order</th><th>ID_Client</th><th>Status</th><th>Price</th><th></th></tr></thead><tbody>';
             $.each(data, function(index) {
-                datos += '<tr><td>' + data[index].id_pedido + '</td><td>' + data[index].id_usuario + '</td><td>' + data[index].estado_envio + '</td><td>' + data[index].precio_pedido + '</td><td>' + data[index].id_pedido + '</td><td><a href="javascript:button_modify(' + data[index].id_pedido + ')" id="form_insert"><i class="icon-edit"></i></a></td></tr>';
+                datos += '<tr><td>' + data[index].id_pedido + '</td><td>' + data[index].id_usuario + '</td><td>' + data[index].estado_envio + '</td><td>' + data[index].precio_pedido + '</td><td><a href="javascript:button_modify(' + data[index].id_pedido + ')" ><i class="icon-edit"></i></a></td></tr>';
             });
             datos += '</tbody></table></div>';
             $('#dataTable').html(datos);
@@ -42,7 +42,6 @@ function insert(){
                         type: 'POST',
                         data: datos,
                         success: function(data) {
-                            
                             pedidos();
                         }
                     });

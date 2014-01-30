@@ -20,7 +20,6 @@ function insert() {
             show: "blind",
             hide: "show",
             buttons: {
-                
                 'Save': function() {
                     var datos = $("#new_product_data").serialize();
                     $.ajax({
@@ -88,6 +87,22 @@ function articulos(id_categoria, nombre) {
             $('#dataTable').html(datos);
         }
     });
+    
+    $.ajax({
+        dataType: 'json',
+        url: 'articulos_categorias.php?id_categoria=' + id_categoria,
+        type: 'GET',
+        success: function(data) {
+            datos = '<ol class="breadcrumb">';
+            datos += '<li>';
+            datos += '<a href="productos_mostrar.html">All Products</a><span class="divider">/</span>';
+            datos += '</li>'
+            datos += '<li class="active">' + nombre + '</li>'
+            datos += '</ol>';
+
+            $('#breadcum').html(datos);
+        }
+    });
 }
 //update product: needed to do a function for modal hidden
 function button_modify(id_producto) {
@@ -139,14 +154,14 @@ function button_modify(id_producto) {
 
 //delete product
 function articulo_borrar(id_producto, id_categoria) {
-   
+
     $.ajax({
         dataType: 'json',
         type: 'GET',
         url: 'articulo_borrar.php?id_producto=' + id_producto + '&id_categoria=' + id_categoria,
         data: datos,
         success: function(data) {
-           
+
             articulos(data);
         }
     });

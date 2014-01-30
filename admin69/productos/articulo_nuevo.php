@@ -23,6 +23,3 @@ header("Content-type: application/json");
 //echo json_encode($datos);
 echo json_encode($id_categoria);
 ?>
-
-
-

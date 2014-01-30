@@ -3,8 +3,8 @@
 //cargamos categorias y el modal del insert product
 $(document).ready(function() {
     //esconde modales
-    $("#dialog").css('visibility', 'hidden');
-    $("#dialog_modify").css('visibility', 'hidden');
+    //$("#dialog").css('visibility', 'hidden');
+    //$("#dialog_modify").css('visibility', 'hidden');
     pedidos();
     insert();
 });

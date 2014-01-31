@@ -30,7 +30,7 @@ function todos_articulos() {
         success: function(data) {
             datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
             $.each(data, function(index) {
-                datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=./assets/img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert2"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
+                datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=../img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert2"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
             });
             datos += '</tbody></table></div>';
             $('#container').html(datos);

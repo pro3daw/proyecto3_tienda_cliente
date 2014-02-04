@@ -14,7 +14,7 @@
             <dirset dir="${user}:${password}@${host}:${path}"/>
         </delete>
         -->
-        
+        <delete dir="${path}"/>
         <scp todir="${user}:${password}@${host}:${path}" trust="yes" >
             <fileset dir=".">
                <!-- <include name="**/*.java"/>-->

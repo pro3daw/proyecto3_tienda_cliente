@@ -1,46 +1,46 @@
+<?php
+session_start();
+if (isset($_SESSION["root"]))
+{
+
+?>
+
 <!DOCTYPE html>
-<!--[if lt IE 7]>
-<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>
-<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>
-<html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!-->
-<html class="no-js"> <!--<![endif]-->
+<!--[if lt IE 7]>       <html class="no-js lt-ie9 lt-ie8 lt-ie7">   <![endif]-->
+<!--[if IE 7]>          <html class="no-js lt-ie9 lt-ie8">          <![endif]-->
+<!--[if IE 8]>          <html class="no-js lt-ie9">                 <![endif]-->
+<!--[if gt IE 8]><!-->  
+<html class="no-js">                        
+    <!--<![endif]-->
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title>Products - Admin Panel</title>
+        <title>Dashboard - Admin Panel</title>
         <meta name="description" content="Metis: Bootstrap Responsive Admin Theme">
         <meta name="viewport" content="width=device-width">
-        <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap.min.css"/>
-        <link type="text/css" rel="stylesheet" href="../assets/css/bootstrap-responsive.min.css"/>
-        <link type="text/css" rel="stylesheet" href="../assets/Font-awesome/css/font-awesome.min.css"/>
-        <link type="text/css" rel="stylesheet" href="../assets/css/style.css">
-        <link type="text/css" rel="stylesheet" href="../assets/css/DT_bootstrap.css"/>
-        <link rel="stylesheet" href="../assets/css/responsive-tables.css">
-        <link rel="stylesheet" type="text/css" media="screen" href="../assets/css/flick/jquery-ui-custom.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="../assets/jqgrid/css/ui.jqgrid.css" />
+        <link type="text/css" rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/bootstrap-responsive.min.css">
+        <link type="text/css" rel="stylesheet" href="assets/Font-awesome/css/font-awesome.min.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/style.css">
+        <link type="text/css" rel="stylesheet" href="assets/css/calendar.css">
 
-        <link rel="stylesheet" href="../assets/css/theme.css">
-        <link rel="stylesheet" href="../assets/css/general.css">
+        <link rel="stylesheet" href="assets/css/theme.css">
+        <link rel="stylesheet" href="assets/css/general.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
-        <script src="assets/jqgrid/js/i18n/grid.locale-es.js" type="text/javascript"></script>
-        <script src="assets/jqgrid/js/jquery.jqGrid.min.js" type="text/javascript"></script>
-
-        <script type="text/javascript" src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
         <!--[if IE 7]>
         <link type="text/css" rel="stylesheet" href="assets/Font-awesome/css/font-awesome-ie7.min.css"/>
         <![endif]-->
+
+        <script src="assets/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
     </head>
     <body class="padTop44">
         <!-- BEGIN WRAP -->
         <div id="wrap">
+
+
             <!-- BEGIN TOP BAR -->
             <div id="top">
                 <!-- .navbar -->
@@ -52,7 +52,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </a>
-                            <a class="brand" href="../index.html">ServiSport</a>
+                            <a class="brand" href="dashboard.php">ServiSport</a>
                             <!-- .topnav -->
                             <div class="btn-toolbar topnav">
                                 <div class="btn-group">
@@ -84,21 +84,21 @@
                                 </div>
                                 <div class="btn-group">
                                     <a class="btn btn-danger btn-sm" data-placement="bottom" data-original-title="Logout" rel="tooltip"
-                                       href="../login.html"><i class="icon-off"></i></a></div>
+                                       href="login.html"><i class="icon-off"></i></a></div>
                             </div>
                             <!-- /.topnav -->
                             <div class="nav-collapse collapse">
                                 <!-- .nav -->
                                 <ul class="nav">
-                                    <li class="active"><a href="../index.html"><i class="icon-home"></i>Home</a></li>
+                                    <li class="active"><a href="index.html"><i class="icon-home"></i>Home</a></li>
                                     <li class="dropdown">
                                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                             Options <b class="caret"></b>
                                         </a>
                                         <ul class="dropdown-menu">
-                                            <li><a href="../productos/productos_mostrar.html">Products</a></li>
-                                            <li><a href="../usuarios/usuarios_mostrar.html">Users</a></li>
-                                            <li><a href="../pedidos/pedidos_mostrar.html">Orders</a></li>
+                                            <li><a href="productos/productos_mostrar.html">Products</a></li>
+                                            <li><a href="usuarios/usuarios_mostrar.html">Users</a></li>
+                                            <li><a href="pedidos/pedidos_mostrar.html">Orders</a></li>
                                         </ul>
                                     </li>
                                 </ul>
@@ -110,6 +110,8 @@
                 <!-- /.navbar -->
             </div>
             <!-- END TOP BAR -->
+
+
             <!-- BEGIN HEADER.head -->
             <header class="head">
                 <div class="search-bar">
@@ -137,7 +139,7 @@
                     <div class="container-fluid">
                         <div class="row-fluid">
                             <div class="span12">
-                                <h3><i class="icon-barcode"></i> Products - Admin Panel</h3>
+                                <h3><i class="icon-home"></i> Dashboard - Admin Panel</h3>
                             </div>
                         </div>
                         <!-- /.row-fluid -->
@@ -153,7 +155,7 @@
                 <!-- .user-media -->
                 <div class="media user-media hidden-phone">
                     <a href="" class="user-link">
-                        <img src="../assets/img/bender.gif" alt="" class="media-object img-polaroid user-img">
+                        <img src="assets/img/bender.gif" alt="" class="media-object img-polaroid user-img">
                         <span class="label user-label">4</span>
                     </a>
 
@@ -171,23 +173,20 @@
 
                 <!-- BEGIN MAIN NAVIGATION -->
                 <ul id="menu" class="unstyled accordion collapse in">
-                    <li class="accordion-group">
-                        <a data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#articulos-nav">
+                    <li >
+                        <a href="productos/productos_mostrar.html">
                             <i class="icon-barcode icon-white"></i> Products <span 
                                 class="label btn-metis-6 pull-right">25</span>
                         </a>
-                        <ul class="collapse in" id="articulos-nav">
-                            
-                        </ul>
                     </li>
-                    <li>
-                        <a href="../usuarios/usuarios_mostrar.html">
+                    <li >
+                        <a href="usuarios/usuarios_mostrar.html">
                             <i class="icon-user icon-white"></i> Users <span 
                                 class="label btn-metis-6 pull-right">25</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="../pedidos/pedidos_mostrar.html">
+                    <li >
+                        <a href="pedidos/pedidos_mostrar.html">
                             <i class="icon-shopping-cart icon-white"></i> Orders <span 
                                 class="label btn-metis-6 pull-right">25</span>
                         </a>
@@ -198,64 +197,52 @@
             </div>
             <!-- END LEFT -->
 
-            <!-- #content -->
+            <!-- BEGIN MAIN CONTENT -->
             <div id="content">
                 <!-- .outer -->
                 <div class="container-fluid outer">
                     <div class="row-fluid">
                         <!-- .inner -->
                         <div class="span12 inner">
-                            <!--Begin Datatables-->
-                            <div class="row-fluid">
-                                <div class="span12">
-                                    <div class="box">
-                                        <div id="breadcum"></div>
-                                        <header>
-                                            <div class="icons"><i class="icon-search"></i></div>
-                                            <h5>Product List</h5>
-                                        </header>
-                                        <div id="collapse4" class="body">
-                                            <table id="dataTable" class="table table-bordered table-condensed table-hover table-striped">
 
-                                            </table>
+                            <div class="tac pull-left span6">
+                                <a class="quick-btn" href="#">
+                                    <i class="icon-eye-open icon-2x"></i>
+                                    <span>Tasks</span>
+                                    <span class="label label-inverse">2</span>
+                                </a>
+                                <a class="quick-btn" href="#">
+                                    <i class="icon-check icon-2x"></i>
+                                    <span>in-box</span>
+                                    <span class="label label-important">4</span>
+                                </a>
+
+                                <a class="quick-btn" href="#">
+                                    <i class="icon-envelope icon-2x"></i>
+                                    <span>e-Mail</span>
+                                    <span class="label label-warning">5</span>
+                                </a>
+
+
+                            </div>
+
+
+                            <div class="row-fluid">
+                                <div class="span6 pull-right">
+                                    <div class="box">
+                                        <header>
+                                            <h5><i class="icon icon-calendar"></i>Calendar</h5>
+                                        </header>
+                                        <div id="calendar_content" class="body">
+                                            <div id='calendar'></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <button id="form_insert" class="btn btn-inverse" role="button">Insert Product</button>
-                            <!--End Datatables-->
-                            <div class="row-fluid" id="dialog_modify" style="visibility: hidden">
-                                <div class="span6">
-                                    <h4>Modificar Articulo</h4>
-                                    <form id="modify_product_data">
-                                        <input type="text" placeholder="ID_Product" name="id_producto" id="id_producto" readonly><br>
-                                        <input type="text" placeholder="Name" name="nombre" id="nombre"><br>
-                                        <input type="text" placeholder="Description" name="descripcion" id="descripcion"><br>
-                                        <input type="text" placeholder="Price" name="precio" id="precio"><br>
-                                        <input type="text" placeholder="ID_category" name="id_categoria" id="id_categoria"><br>
-                                        <input type="text" placeholder="Product type" name="tipo_producto" id="tipo_producto">
-                                    </form>
-                                    <!--<a href="javascript:modificaraphp()">Enviar Datos</a>-->
 
-                                </div>
-                            </div>
+                            <!--BEGIN LATEST COMMENT-->
 
-
-                            <div class="row-fluid" id="dialog" style="visibility: hidden">
-                                <div class="span6">
-                                    <h5>Insertar Articulo</h5>
-                                    <form id="new_product_data">
-                                        <input type="text" placeholder="ID_Product" name="id_producto"><br>
-                                        <input type="text" placeholder="Name" name="nombre" ><br>
-                                        <input type="text" placeholder="Description" name="descripcion" ><br>
-                                        <input type="text" placeholder="Price" name="precio" ><br>
-                                        <input type="text" placeholder="ID_category" name="id_categoria" >
-                                        <input type="text" placeholder="Product type" name="tipo_producto" >
-                                    </form>
-                                    <!-- <a href="javascript:articulonuevo()">Enviar Datos</a>-->
-                                </div>
-                            </div>
-
+                            <!--END LATEST COMMENT-->
                         </div>
                         <!-- /.inner -->
                     </div>
@@ -263,67 +250,33 @@
                 </div>
                 <!-- /.outer -->
             </div>
-            <!-- /#content -->
+            <!-- END CONTENT -->
+
+
             <!-- #push do not remove -->
             <div id="push"></div>
             <!-- /#push -->
         </div>
-        <!-- /#wrap -->
+        <!-- END WRAP -->
+
+        <div class="clearfix"></div>
+
+        <!-- BEGIN FOOTER -->
         <div id="footer">
             <p>Servisport - 2014 © Metis Admin</p>
         </div>
-
-        <!-- #editModal -->
-        <div id="editModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="editModalLabel"
-             aria-hidden="true">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="editModalLabel"><i class="icon-edit"></i> Edit Table</h3>
-            </div>
-            <div class="modal-body">
-                <div class="control-group">
-                    <label for="fName" class="control-label">First Name</label>
-                    <div class="controls">
-                        <input type="text" id="fName" name="fName">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label for="lName" class="control-label">Last Name</label>
-                    <div class="controls">
-                        <input type="text" id="lName" name="lName">
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label for="uName" class="control-label">Username</label>
-                    <div class="controls">
-                        <input type="text" id="uName" name="uName">
-                    </div>
-                </div>
-                <div class="form-actions">
-                    <button id="sbmtBtn" type="submit" class="btn btn-primary" data-dismiss="modal" >Submit</button>
-                </div>
-            </div>
-            <div class="modal-footer">
-
-                <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-            </div>
-        </div>
-        <!-- /#editModal -->
+        <!-- END FOOTER -->
 
         <!-- #helpModal -->
         <div id="helpModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel"
              aria-hidden="true">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                <h3 id="helpModalLabel"><i class="icon-external-link"></i> Help</h3>
+                <h3 id="helpModalLabel"><i class="icon-external-link"></i>Online Help</h3>
             </div>
             <div class="modal-body">
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                    ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                    nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
-                    anim id est laborum.
+                    This is an ServiSport help
                 </p>
             </div>
             <div class="modal-footer">
@@ -333,33 +286,47 @@
         </div>
         <!-- /#helpModal -->
 
-
-
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="../assets/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+        <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
 
-        <!--
+
+
         <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
         <script>window.jQuery.ui || document.write('<script src="assets/js/vendor/jquery-ui-1.10.0.custom.min.js"><\/script>')</script>
-        -->
 
-        <script src="../assets/js/vendor/bootstrap.min.js"></script>
-        <script src="../assets/js/articulos.js"></script>
 
-        <script type="text/javascript" src="../assets/js/lib/jquery.tablesorter.min.js"></script>
-        <script type="text/javascript" src="../assets/js/lib/jquery.dataTables.min.js"></script>
-        <script type="text/javascript" src="../assets/js/lib/DT_bootstrap.js"></script>
-        <script type="text/javascript" src="../assets/js/lib/responsive-tables.js"></script>
+        <script src="assets/js/vendor/bootstrap.min.js"></script>
+
+        <script src="assets/js/lib/jquery.tablesorter.min.js"></script>
+
+        <script src="assets/js/lib/jquery.mousewheel.js"></script>
+        <script src="assets/js/lib/jquery.sparkline.min.js"></script>
+
+        <script src="assets/flot/jquery.flot.js"></script>
+        <script src="assets/flot/jquery.flot.pie.js"></script>
+        <script src="assets/flot/jquery.flot.selection.js"></script>
+        <script src="assets/flot/jquery.flot.resize.js"></script>
+
+        <script src="assets/fullcalendar/fullcalendar/fullcalendar.min.js"></script>
+
+        <script src="assets/js/main.js"></script>
+
+
         <script type="text/javascript">
             $(function() {
-                metisTable();
+                dashboard();
             });
         </script>
-        <script type="text/javascript" src="../assets/js/main.js"></script>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js" type="text/javascript"></script>
 
 
     </body>
 </html>
+<?php
+}
+else
+{
+header('Location:loginerror.html');
+   
+}
+?>

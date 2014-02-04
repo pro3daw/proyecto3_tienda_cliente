@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION["root"]))
+{
+
+?>
+
 <!DOCTYPE html>
 <!--[if lt IE 7]>
 <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -52,7 +59,7 @@
                                 <span class="icon-bar"></span>
                                 <span class="icon-bar"></span>
                             </a>
-                            <a class="brand" href="../index.html">ServiSport</a>
+                            <a class="brand" href="../dashboard.php">ServiSport</a>
                             <!-- .topnav -->
                             <div class="btn-toolbar topnav">
                                 <div class="btn-group">
@@ -90,7 +97,7 @@
                             <div class="nav-collapse collapse">
                                 <!-- .nav -->
                                 <ul class="nav">
-                                    <li class="active"><a href="../index.html"><i class="icon-home"></i>Home</a></li>
+                                    <li class="active"><a href="../dashboard.php"><i class="icon-home"></i>Home</a></li>
                                     <li class="dropdown">
                                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                                             Options <b class="caret"></b>
@@ -359,3 +366,11 @@
 
     </body>
 </html>
+<?php
+}
+else
+{
+header('Location:../loginerror.html');
+   
+}
+?>

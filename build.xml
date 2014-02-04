@@ -10,11 +10,10 @@
 <project name="Densetech" default="desplegarProduccion" basedir=".">
     <target name="desplegarProduccion">
         <property file="/home/jenkins/environments/proyecto3/proyecto3_tienda_cliente.properties"></property>
-        <!--<delete>
-            <dirset dir="${user}:${password}@${host}:${path}"/>
-        </delete>
-        -->
-        <delete dir="${path}"/>
+        <sshexec host="${host}"
+	username="${user}"
+	password="${password}"
+	command="rm -fr ${path} "/>
         <scp todir="${user}:${password}@${host}:${path}" trust="yes" >
             <fileset dir=".">
                <!-- <include name="**/*.java"/>-->

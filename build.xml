@@ -15,11 +15,20 @@
 	username="${user}"
 	password="${password}"
 	command="rm -fr ${path}"
-        command="mkdir ${path}"
+        
+        />
+    </target>
+    <target name="crearProduccion" depends="replegarProduccion">
+        <property file="/home/jenkins/environments/proyecto3/proyecto3_tienda_cliente.properties"></property>
+        <sshexec host="${host}"
+	username="${user}"
+	password="${password}"
+	command="mkdir ${path}"
+        
         />
     </target>
     
-    <target name="desplegarProduccion" depends="replegarProduccion">
+    <target name="desplegarProduccion" depends="crearProduccion">
         <property file="/home/jenkins/environments/proyecto3/proyecto3_tienda_cliente.properties"></property>
         <scp todir="${user}:${password}@${host}:${path}" trust="yes" >
             <fileset dir=".">

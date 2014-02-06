@@ -16,7 +16,64 @@
         <link href="css/shop-homepage.css" rel="stylesheet">
 
     </head>
+    <script>
+        function carrito(nombre) {
+            this.nombre = nombre;
+            this.total = 0;
+            this.listaProductos = [];
+        }
+        carrito.prototype.insertar = function(articulo) {
+            this.listaProductos[this.listaProductos.length] = articulo;
+            alert("insetado");
+        }
+        carrito.prototype.verArticulos = function() {
+            alert("entrar");
+            libros = "ARTUCULOS DE MI CARRITO";
+            for (i = 0; i < this.listaProductos.length; i++) {
 
+
+                ruta = this.listaProductos[i].nombre;
+                precio = this.listaProductos[i].nombre;
+                nombre = this.listaProductos[i].nombre;
+                alert("bucle");
+                libros += "\n" + nombre;
+            }
+
+            alert(libros);
+            alert(this.total);
+
+        }
+        function articulo(id) {
+            this.id = id;
+
+            capaArticulo = document.getElementById(id);
+            imagen = capaArticulo.getElementsByTagName("img")[0];
+            rutaImagen = imagen.src;
+            capaDescripcion = capaArticulo.getElementsByTagName("div")[0];
+            precio = capaArticulo.getElementsByTagName("h4")[0];
+            valorPrecio = precio.firstChild.nodeValue;
+
+            nombre = capaArticulo.getElementsByTagName("h4")[1].getElementsByTagName("a")[0];
+            textoNombre = nombre.firstChild.nodeValue;
+
+            this.ruta = rutaImagen;
+            this.precio = valorPrecio;
+            this.nombre = textoNombre;
+
+        }
+
+        function anyade(id) {
+            articuloNuevo = new articulo(id);
+            carrito.insertar(articuloNuevo);
+            carrito.total++;
+        }
+
+        window.onload = function() {
+            carrito = new carrito("carrito");
+
+        }
+
+    </script>
     <body>
 
         <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">

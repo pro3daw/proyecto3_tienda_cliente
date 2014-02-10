@@ -22,21 +22,21 @@ function categorias() {
     });
 }
 
-function todos_articulos() {
-    //carga todos los productos en datatable
-    $.ajax({
-        dataType: 'json',
-        url: 'articulos.php',
-        success: function(data) {
-            datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
-            $.each(data, function(index) {
-                datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=../img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert2"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
-            });
-            datos += '</tbody></table></div>';
-            $('#container').html(datos);
-        }
-    });
-}
+//function todos_articulos() {
+//    //carga todos los productos en datatable
+//    $.ajax({
+//        dataType: 'json',
+//        url: 'articulos.php',
+//        success: function(data) {
+//            datos = '<thead><tr><th>ID_Producto</th><th>Nombre</th><th>Precio</th><th>Vista Previa</th></tr></thead><tbody>';
+//            $.each(data, function(index) {
+//                datos += '<tr><td>' + data[index].id_producto + '</td><td>' + data[index].nombre + '</td><td>' + data[index].precio + '</td><td><img src=../img/' + data[index].id_producto + '.jpg' + '></td><td><a href="javascript:button_modify(' + data[index].id_producto + ')" id="form_insert2"><i class="icon-edit"></i></a></td><td><a href="javascript:articulo_borrar(' + data[index].id_producto + ',' + data[index].id_categoria + ')"><i class="icon-remove"></i></a></td></tr>';
+//            });
+//            datos += '</tbody></table></div>';
+//            $('#container').html(datos);
+//        }
+//    });
+//}
 //load products
 function articulos(id_categoria, nombre) {
 
@@ -49,7 +49,7 @@ function articulos(id_categoria, nombre) {
             datos = '';
             $.each(data, function(index) {
 
-                datos += '<div class="col-sm-4 col-lg-4 col-md-4"><div id="'+data[index].id_producto+'"class="thumbnail"><img src="img/' + data[index].id_producto + '.jpg" alt=""><div class="caption"><h4 class="pull-right">' + data[index].precio + '€</h4> <h4><a href="#">' + data[index].nombre + '</a></h4><p>' + data[index].descripcion + '</p><div align="right"><button type="button" class="btn btn-default" onClick="anyade('+data[index].id_producto+')">Añadir  <i class="glyphicon glyphicon-shopping-cart"></i></button></div></div><div class="ratings"><p class="pull-right">12 reviews</p><p><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></p></div></div></div>';
+                datos += '<div class="col-sm-4 col-lg-4 col-md-4"><div id="'+data[index].id_producto+'"class="thumbnail"><img src="img/' + data[index].id_producto + '.jpg" alt=""><div class="caption"><h4 class="pull-right">' + data[index].precio + '€</h4> <h4><a href="#">' + data[index].nombre + '</a></h4><p>' + data[index].descripcion + '</p><div align="center"><button type="button" class="btn btn-default" onClick="anyade('+data[index].id_producto+')">Añadir  <i class="glyphicon glyphicon-shopping-cart"></i></button></div></div><div class="ratings"><p class="pull-right">12 reviews</p><p><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></p></div></div></div>';
 
             });
             datos += '';

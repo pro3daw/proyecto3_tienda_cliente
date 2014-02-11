@@ -23,7 +23,7 @@
         function carrito(nombre) {
             this.nombre = nombre;
             this.fecha = new Date();
-            this.idCliente = null;
+            this.idCliente = 1;
             this.totalProductos = 0;
             this.totalPrecio = 0;
             this.listaProductos = [];
@@ -51,6 +51,26 @@
             document.getElementById("numeroCarrito1").firstChild.nodeValue = carrito.totalProductos;
             document.getElementById("numeroCarrito2").firstChild.nodeValue = carrito.totalProductos;
             this.verArticulos();
+        }
+        carrito.prototype.actualizar= function(){
+            totalprecio = 0;
+            totalproducto = 0;
+            
+            for (i = 0; i < this.listaProductos.length; i++) {
+                  totalprecio = totalprecio+parseInt(this.listaProductos[i].total);
+                  totalproducto = totalproducto+parseInt(this.listaProductos[i].unidades);
+            
+            }
+            
+            this.totalPrecio = totalprecio;
+            this.totalProductos = totalproducto;
+            document.getElementById("numeroCarrito1").firstChild.nodeValue = totalproducto
+;           document.getElementById("numeroCarrito2").firstChild.nodeValue = totalproducto;
+            this.verArticulos();
+            
+        }
+        carrito.prototype.sumarUnidad = function(id){
+            
         }
         carrito.prototype.verArticulos = function() {
             
@@ -97,6 +117,7 @@
             this.total = this.precio;
 
         }
+        
 
         function anyade(id) {
            articuloNuevo = new articulo(id);
@@ -111,15 +132,45 @@
         
         tbody = document.getElementById("bodyTablaProductosCarrito");
         tbody.innerHTML ="";
+        alert("carga tabla");
         for (i = 0; i < carrito.listaProductos.length; i++) {
-              alert("entro");
-             tbody.innerHTML += "<tr><td><a href='javascript:articulo_borrar("+carrito.listaProductos[i].id+")'>Borrar</a></td><td><img width='80' height='80' src='img/"+carrito.listaProductos[i].id+".jpg'></td><td>"+ carrito.listaProductos[i].nombre+"</td><td><p>"+carrito.listaProductos[i].unidades+"</p></td><td>"+carrito.listaProductos[i].precio+"€</td><td>"+carrito.listaProductos[i].total+"€</td></tr>"
+             
+             tbody.innerHTML += "<tr><td><a href='javascript:borrarArticulo("+carrito.listaProductos[i].id+")'>Borrar</a></td><td><img width='80' height='80' src='img/"+carrito.listaProductos[i].id+".jpg'></td><td>"+ carrito.listaProductos[i].nombre+"</td><td><p>"+carrito.listaProductos[i].unidades+"</p></td><td>"+carrito.listaProductos[i].precio+"€</td><td>"+carrito.listaProductos[i].total+"€</td></tr>"
         
             }
         
         }
-        function borrarFila(){
+        function borrarArticulo(id){
+            
+         for (i = 0; i < carrito.listaProductos.length; i++) {
+             if(carrito.listaProductos[i].id==id){
+                 alert("borrar")
+                 pos = i;
+             }
+        }
+        carrito.listaProductos.splice(pos,1);
         
+        cargaProductos();
+        carrito.actualizar();
+        alert("actualizado");
+        carrito.verArticulos();
+        
+        }
+        function comprar(){
+            alert("entra comprar");
+            carritoJSON = JSON.stringify(carrito);
+            alert(carritoJSON);
+            $.ajax({
+		  type:'POST',
+		  data:'datos='+carritoJSON,
+		  url: 'compra.php',
+                  
+		  success: function(data){
+			 
+			alert("COMPRAO")
+				  
+		  }
+			});
         }
 
         window.onload = function() {
@@ -650,7 +701,6 @@
         $(document).ready(function() {
             // Smart Wizard
             $('#wizard').smartWizard();
-
             function onFinishCallback() {
                 $('#wizard').smartWizard('showMessage', 'Finish Clicked');
                 alert('You Finish!');
